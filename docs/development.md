@@ -4,23 +4,23 @@
 
 - git init
 - git config
-- poetry install
+- uv sync
 - git commit
 
 ## Develop
 
 - code
 - git commit
-- tox
+- 运行测试
 
-## Delivery
+## 发布
 
-### Run tox
+### 运行测试
 
-Run tox to format code style and check test.
+运行测试确保代码质量：
 
-```shell script
-tox
+```shell
+uv run python -m pytest
 ```
 
 ### Git tag
@@ -38,7 +38,7 @@ git tag -a v0.1.0
 Build this tag distribution package.
 
 ```shell script
-poetry build
+uv build
 ```
 
 ### Upload index server
@@ -46,7 +46,7 @@ poetry build
 Upload to pypi server, or pass `--repository https://pypi.org/simple` to specify index server.
 
 ```shell script
-poetry publish
+uv publish
 ```
 
 ## Develop guide

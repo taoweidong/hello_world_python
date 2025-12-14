@@ -1,49 +1,67 @@
-# Hello_World_Python
+# Python 从入门到精通学习项目
 
+## 1. 概述
 
-## 1. Overview
+这是一个系统化的 Python 学习项目，旨在帮助学习者从基础语法逐步掌握到高级编程技能。项目按照难度级别组织学习内容，让学习过程更有序、高效。
 
-My Awesome Project!
+## 2. 使用方法
 
-## 2. Usage
-
-### 2.1 init project
+### 2.1 初始化项目
 
 ```
- 
-# (推荐使用 Poetry ，既包含了虚拟环境管理工具也支持打包发布等功能。)
-# (在安装好 Python 环境后，应该在全局环境中安装 Poetry 。python -m pip install -U pip)
-pip install -U poetry
-#安装 cookiecutter
-pip3 install -U cookiecutter
-#初始化项目
-cd workspace
-cookiecutter https://github.com/pyloong/cookiecutter-pythonic-project
+# 使用 uv 安装依赖
+uv sync
 
-# 安装 virtualenv 虚拟环境管理工具
-pip install virtualenv
-# 使用 virtualenv 创建虚拟环境
-virtualenv .venv
-# 进入虚拟环境中
-source .venv/bin/activate
-
-#使用 poetry 初始化一个虚拟环境。
-poetry install -v
-#安裝项目依赖
-poetry install
-
-# 执行 tox ，验证项目完整性
-tox
+# 或者使用 pip 安装
+pip install -e .
 ```
 
-### 2.2 usage
+### 2.2 运行测试
 
-TODO
+```
+# 使用 uv 运行测试
+uv run python -m pytest
 
-## 3. Develop
+# 使用 uv 运行测试并生成覆盖率报告
+uv run python -m pytest --cov
 
-You may need to read the [develop document](./docs/development.md) to use SRC Layout in your IDE.
+# 使用 uv 运行测试并生成详细覆盖率报告
+uv run python -m pytest --cov --cov-report=html
+```
 
+### 2.2 学习路径
 
-## 4. FAQ
+项目按以下顺序组织学习内容：
+
+1. `01_basics` - Python 基础语法
+2. `02_oop` - 面向对象编程
+3. `03_data_processing` - 数据处理与分析
+4. `04_advanced` - Python 高级特性
+5. `05_concurrency` - 并发编程
+6. `06_testing_debugging` - 测试和调试
+
+建议按照上述顺序逐步学习各个模块。
+
+## 3. 开发说明
+
+如需进行开发，建议阅读 [开发文档](./docs/development.md) 了解如何在 IDE 中使用 SRC 布局。
+
+推荐使用 uv 进行依赖管理：
+- 安装依赖: `uv sync`
+- 添加依赖: `uv add <package>`
+- 添加开发依赖: `uv add --dev <package>`
+- 运行测试: `uv run python -m pytest`
+- 运行带覆盖率的测试: `uv run python -m pytest --cov`
+- 构建项目: `uv build`
+- 发布项目: `uv publish`
+
+## 4. 学习建议
+
+建议按照以下步骤进行学习：
+
+1. 先运行项目确保环境配置正确
+2. 按照目录编号顺序学习各模块内容
+3. 每个模块都配有示例代码，建议动手实践
+4. 遇到问题时参考对应模块的注释和文档
+
 Python 项目工程化开发指南：https://pyloong.github.io/pythonic-project-guidelines/quick_start/#15

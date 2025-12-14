@@ -1,36 +1,42 @@
-[tool.poetry]
+[project]
 name = "hello_world_python"
 version = "0.1.0"
 description = "My Awesome Project!"
 readme = "README.md"
-authors = ["taoweidong <taoweidong@outlook.com>"]
-license = "MIT"
+authors = [
+    {name = "taoweidong", email = "taoweidong@outlook.com"}
+]
+license = {text = "MIT"}
 classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.10",
 ]
+requires-python = ">=3.10"
+dependencies = [
+    "pytest-html>=4.1.1",
+    "pytest-cov>=6.1.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-pytest-html = "^4.1.1"
-pytest-cov = "^6.1.1"
+[project.optional-dependencies]
+dev = [
+    "pylint>=2.17.4",
+    "isort>=5.12.0",
+    "pytest>=7.3.1",
+    "mkdocs>=1.4.3",
+    "mkdocs-material>=8.5.11",
+    "pytest-pylint>=0.19.0",
+]
 
-[tool.poetry.group.dev.dependencies]
-pylint = "^2.17.4"
-isort = "^5.12.0"
-pytest = "^7.3.1"
-tox = "^4.5.2"
-mkdocs = "^1.4.3"
-mkdocs-material = "^8.5.11"
-pytest-pylint = "^0.19.0"
-pre-commit = "^3.3.2"
+[project.scripts]
+hello-world-python = "hello_world_python.hello:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov --cov-report=term-missing --cov-report=html --cov-config=pyproject.toml"
+
+[tool.coverage.run]
+source = ["src"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-[tool.pytest.ini_options]
-testpaths = "tests"
-python_files = "tests.py test_*.py *_tests.py"
-
-[tool.pylint.design]
-max-line-length = 120
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
