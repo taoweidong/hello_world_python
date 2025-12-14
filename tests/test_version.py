@@ -1,5 +1,5 @@
 """Tests"""
-from hello_world_python import __version__
+from src.hello_world_python import __version__
 
 
 def test_version():

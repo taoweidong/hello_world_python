@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch
 
-from hello_world_python.hello import Hello
+from src.hello_world_python.hello import Hello
 
 
 class TestHello(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestHello(unittest.TestCase):
         hello = Hello(name)
         self.assertEqual(hello.name, name)
 
-    @patch('hello_world_python.hello.print')
+    @patch('src.hello_world_python.hello.print')
     def test_say_hello_outputs_correct_message(self, mock_print):
         """
         TC002：验证打印输出是否正确格式化

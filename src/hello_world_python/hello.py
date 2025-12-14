@@ -17,3 +17,12 @@ class Hello:
     @classmethod
     def add(cls, a: int, b: int) -> int:
         return a + b
+
+
+def main():
+    """Main function"""
+    print("Hello World Python!!!")
+
+
+if __name__ == '__main__':
+    main()

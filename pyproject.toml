@@ -28,7 +28,14 @@ dev = [
 ]
 
 [project.scripts]
-hello-world-python = "hello_world_python.hello:main"
+hello-world-python = "main:main"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["main"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -36,7 +43,3 @@ addopts = "--cov --cov-report=term-missing --cov-report=html --cov-config=pyproj
 
 [tool.coverage.run]
 source = ["src"]
-
-[build-system]
-requires = ["setuptools>=45", "wheel"]
-build-backend = "setuptools.build_meta"
